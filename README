@@ -1,0 +1,9 @@
+#
+
+Se toma el 
+
+/proyectos/MCAC/targets/Miocardiopatias_y_canalopatias_AllTracks.bed
+
+Para generar el manifiesto con el formato del archivo
+
+/proyectos/MCAC/targets/Cardiomiopatias_Canalopatias_Manifiesto.txt
