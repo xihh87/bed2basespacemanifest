@@ -1,0 +1,9 @@
+#!/usr/bin/sh
+cat << EOF
+#Agilent HaloPlex Miocardiopatias y canalopatias  Genomic regions expected to be amplified.						[Header]						
+ReferenceGenome	C:\Illumina\MiSeq Reporter\Genomes\Homo_sapiens\UCSC\hg19\Sequence\WholeGenomeFASTA					
+[Regions]						
+Name	Chromosome	Amplicon Start	Amplicon End	Upstream Probe Length	Downstream Probe Length	Group
+EOF
+
+sort -tr -k2,2n $1 | ./bed2basespacemanifest.awk
