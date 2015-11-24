@@ -1,9 +1,10 @@
-#
+Para generar los manifiestos:
 
-Se toma el 
+Agregar el archivo BED en la carpeta `beds`.
 
-/proyectos/MCAC/targets/Miocardiopatias_y_canalopatias_AllTracks.bed
+Ejecutar el comando
 
-Para generar el manifiesto con el formato del archivo
+    ./build
 
-/proyectos/MCAC/targets/Cardiomiopatias_Canalopatias_Manifiesto.txt
+Esto generará el manifiesto para su uso en [basespace](https://basespace.illumina.com/home/index )
+dentreo de la carpeta `basespace-manifests`.
