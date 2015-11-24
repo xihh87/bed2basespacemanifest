@@ -13,6 +13,22 @@ BEGIN{
 	OFS="\t"
 }
 
+
+function gen_name(s) {
+	# Elegir la primer anotación que contenga "ref|", o la primer anotación.
+	split(s, tmp, ",")
+	gen = tmp[1]
+	n = length(tmp)
+	for (i=1; i<=n; i++) {
+		if (tmp[i] ~ /^ref\|/) {
+			gen=substr(tmp[i], 5, length(tmp[i]) - 4);
+			break
+		}
+	}
+	delete tmp
+	return gen
+}
+
 # Formato de manifiesto de basespace:
 # 
 # Encabezado generado por el script en shell
@@ -21,14 +37,4 @@ BEGIN{
 {
 	gen = gen_name($anotaciones)
 	print gen "." $cromosoma "." $inicio "." $fin, $cromosoma, $inicio, $fin, "0", "0", ""
-}
-
-function gen_name(s) {
-	# El nombre del gen es la primer anotación, o la primera que contenga "ref|"
-	split(s, tmp, ",")
-	gen = tmp[1]
-	n = length(tmp)
-	for (i=1; i<=n; i++)	if (tmp[i] ~ /^ref\|/) {gen=substr(tmp[i], 5, length(tmp[i]) - 4); break}
-	delete tmp
-	return gen
 }
