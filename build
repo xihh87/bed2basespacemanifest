@@ -1,4 +1,0 @@
-#!/usr/lib/plan9/bin/rc
-for(i in beds/*){
-	mk `{basename $i .bed}^.txt
-}
