@@ -7,4 +7,4 @@ Ejecutar el comando
     ./build
 
 Esto generará el manifiesto para su uso en [basespace](https://basespace.illumina.com/home/index )
-dentreo de la carpeta `basespace-manifests`.
+dentro de la carpeta `basespace-manifests`.

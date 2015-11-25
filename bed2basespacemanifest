@@ -1,9 +1,25 @@
 #!/usr/bin/sh
-cat << EOF
-#Agilent HaloPlex Miocardiopatias y canalopatias  Genomic regions expected to be amplified.						[Header]						
-ReferenceGenome	C:\Illumina\MiSeq Reporter\Genomes\Homo_sapiens\UCSC\hg19\Sequence\WholeGenomeFASTA					
+
+encabezado() {
+	FILE="$1"
+	cat << EOF
+#Agilent HaloPlex $(basename $FILE)  Genomic regions expected to be amplified.						
+[Header]						
+ReferenceGenome	C:\Illumina\MiSeq Reporter\Genomes\Homo_sapiens\UCSC\hg19\Sequence\WholeGenomeFASTA						
 [Regions]						
 Name	Chromosome	Amplicon Start	Amplicon End	Upstream Probe Length	Downstream Probe Length	Group
 EOF
+}
 
-sort -tr -k2,2n $1 | ./bed2basespacemanifest.awk
+contenido() {
+	local FILE=$1
+	sort -tr -k2,2n -k3,3n $FILE | ./bed2basespacemanifest.awk
+}
+
+main() {
+	local FILE=$1
+	encabezado $FILE
+	contenido $FILE
+}
+
+main $@
