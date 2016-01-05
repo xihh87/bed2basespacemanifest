@@ -7,3 +7,6 @@ basespace-manifests/%.txt: beds/%.bed
 
 clean:V:
 	rm basespace-manifests/*.txt
+
+init:V:
+	mkdir -p beds basespace-manifests
