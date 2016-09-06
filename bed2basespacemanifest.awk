@@ -34,7 +34,7 @@ function gen_name(s) {
 # Encabezado generado por el script en shell
 #
 # Nombre(gen.cromosoma.inicio.fin)	Cromosoma	Inicio	Fin	Longitud	Downstream
-{
+$1 ~ /^chr/ {
 	gen = gen_name($anotaciones)
 	print gen "." $cromosoma "." $inicio "." $fin, $cromosoma, $inicio, $fin, "0", "0", ""
 }
